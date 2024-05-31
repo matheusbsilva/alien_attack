@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal took_damage
+
 var speed = 350
 var rocket_scene = preload("res://scenes/rocket.tscn")
 @onready var rocket_container = $RocketContainer
@@ -34,3 +36,9 @@ func shoot():
 	rocket_container.add_child(rocket)
 	rocket.global_position = global_position
 	rocket.global_position.x += 80
+
+func take_damage():
+	emit_signal("took_damage")
+	
+func die():
+	queue_free()

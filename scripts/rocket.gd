@@ -4,7 +4,6 @@ extends Area2D
 @onready var visible_notifier = $VisibleNotifier
 
 
-
 func _ready():
 	visible_notifier.connect("screen_exited", _on_screen_exited)
 	
